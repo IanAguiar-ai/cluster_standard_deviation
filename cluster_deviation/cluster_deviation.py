@@ -16,7 +16,7 @@ class Cluster_Deviation:
         self.factor_pull = factor_pull
         self.factor_push = factor_push
         self.first_deviation = self.deviation()
-        self.groups = []
+        self.temporary_groups = []
 
     def deviation(self) -> float:
         """
@@ -28,7 +28,7 @@ class Cluster_Deviation:
         variance_sum:float = sum(sum((point[i] - means[i]) ** 2 for i in range(dimentions)) for point in self.list)
         return (variance_sum/(number_points * dimentions)) ** 0.5
 
-    def group(self, threshold:float = 0, amount:int = None) -> None:
+    def group(self, threshold:float = None, amount:int = None) -> bool:
         """
         Função que descobre os agrupamentos
 
@@ -43,16 +43,16 @@ class Cluster_Deviation:
             mid_threshold:float = (threshold_min + threshold_max)/2
 
             iterations:int = 0
-            while len(self.groups) != amount:
+            while len(self.temporary_groups) != amount:
                 if iterations > 100:
                     print(f"Could not find {amount} groups")
-                    break
+                    return False
                     
                 mid_threshold:float = (threshold_min + threshold_max)/2
-                print(f"{len(self.groups):2} | {threshold_min:8.04f} | {threshold_max:8.04f} | {mid_threshold:8.04f}")
+                #print(f"{len(self.temporary_groups):2} | {threshold_min:8.04f} | {threshold_max:8.04f} | {mid_threshold:8.04f}")
                 self.group(threshold = mid_threshold)
 
-                if len(self.groups) > amount:
+                if len(self.temporary_groups) > amount:
                     threshold_min:float = mid_threshold
                 else:
                     threshold_max:float = mid_threshold
@@ -62,11 +62,14 @@ class Cluster_Deviation:
 
                 iterations += 1
 
-            print(f"groups({len(self.groups)}) = {mid_threshold} <----")
-            return None
+            #print(f"groups({len(self.temporary_groups)}) = {mid_threshold} <----")
+            return True
 
+        if threshold == None:
+            threshold:float = self.first_deviation
+
+        self.temporary_groups = []
         self.groups = []
-        self.groups_old = []
 
         temporary_list = deepcopy(self.list)
         temporary_list_old = deepcopy(self.old_list)
@@ -82,16 +85,16 @@ class Cluster_Deviation:
             temporary_list_old.remove(point_cluster_old)
 
             for point, point_old in zip(deepcopy(temporary_list), deepcopy(temporary_list_old)):
-                if distance(point_cluster, point) <= self.first_deviation + threshold:
+                if distance(point_cluster, point) <= threshold:
                     temporary_group.append(point)
                     temporary_group_old.append(point_old)
                     
                     temporary_list.remove(point)
                     temporary_list_old.remove(point_old)
 
-            self.groups.append(temporary_group)
-            self.groups_old.append(temporary_group_old)
-        return None
+            self.temporary_groups.append(temporary_group)
+            self.groups.append(temporary_group_old)
+        return True
 
     def cluster(self, iterations:int = 1, threshold:float = 0, amount:int = None) -> bool:
         """

@@ -75,15 +75,15 @@ if __name__ == "__main__":
     from random import random, seed
     from copy import deepcopy
     
-    metodo = Cluster_Deviation([[random()*20, random()*20] for _ in range(50)])
+    metodo = Cluster_Deviation([[random()*20, random()*20] for _ in range(200)])
     
     antes = deepcopy(metodo.list)
     
     plot_2d(metodo.list)
     metodo.cluster(iterations = 10)
-    for i in range(2, 4):
+    for i in range(2, 5):
         metodo.group(amount = i)
 
-    metodo.group(amount = 3)
-    multiple_plot_2d(metodo.groups_old)
+    metodo.group()
+    multiple_plot_2d(metodo.groups)
 

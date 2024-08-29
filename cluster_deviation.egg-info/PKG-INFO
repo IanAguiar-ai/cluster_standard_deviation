@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: cluster-deviation
+Version: 0.0.1
+Summary: Cluster Deviation.
+Home-page: UNKNOWN
+Author: ['Ian dos Anjos']
+Author-email: <iannaianjos@gmail.com>
+License: UNKNOWN
+Keywords: python,cluster,standard deviation,iterative method
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# cluster_standard_deviation
+Proprietary technique designed for simple n-dimensional clustering
+
+

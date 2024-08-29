@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+cluster_deviation/__init__.py
+cluster_deviation/cluster_deviation.py
+cluster_deviation/example.py
+cluster_deviation.egg-info/PKG-INFO
+cluster_deviation.egg-info/SOURCES.txt
+cluster_deviation.egg-info/dependency_links.txt
+cluster_deviation.egg-info/top_level.txt
