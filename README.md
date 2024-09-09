@@ -51,22 +51,22 @@ Ao processar as observações (dados estruturados), onde todas compartilham as m
 
 (DISTANCI/DISTANCIA)
 
-Given two points **P** and **Q** in an n-dimensional space, where:
+Given two points **P_1** and **P_2** in an n-dimensional space, where:
 
 - **P** = (x₁, x₂, ..., xₙ)
-- **Q** = (y₁, y₂, ..., yₙ)
+- **P** = (y₁, y₂, ..., yₙ)
 
-The distance between **P** and **Q** is given by the following formula:
+The distance between **P_1** and **P_2** is given by the following formula:
 
 $$
-d(P, Q) = \sqrt{(x₁ - y₁)^2 + (x₂ - y₂)^2 + \dots + (xₙ - yₙ)^2}
+d(P_1, P_2) = \sqrt{(x₁ - y₁)^2 + (x₂ - y₂)^2 + \dots + (xₙ - yₙ)^2}
 $$
 
 This formula represents the Euclidean distance between the two points in n-dimensional space.
 
 (ATTRACTION/ATRACAO)
 
-Given two points **P**, where:
+Given two points **P_1** and **P_2**, where:
 
 $$
 P_1 = PUSH(P_1, P_2) = P_{1,i} + \lambda * (P_{2,i} − P_{1,i})
