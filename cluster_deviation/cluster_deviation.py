@@ -113,11 +113,11 @@ class Cluster_Deviation:
                         if distance(self.list[i], self.list[j]) < self.first_deviation:
                             self.list[j] = pull(point_1 = self.list[i], point_2 = self.list[j], factor = self.factor_pull)
                             #print(f"PULL {deviation} {distance(self.list[i], self.list[j])}")
-                        else: 
+                        else:
                             self.list[j] = push(point_1 = self.list[i], point_2 = self.list[j], factor = self.factor_push)
                             #print(f"PUSH {deviation} {distance(self.list[i], self.list[j])}")
 
-        self.group(threshold, amount)        
+        self.group(threshold, amount)
         return True
 
 def distance(point_1:list, point_2:list) -> float:
