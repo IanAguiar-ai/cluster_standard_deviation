@@ -53,8 +53,8 @@ Ao processar as observações (dados estruturados), onde todas compartilham as m
 
 Given two points **P_1** and **P_2** in an n-dimensional space, where:
 
-- **P** = (x₁, x₂, ..., xₙ)
-- **P** = (y₁, y₂, ..., yₙ)
+- **P_1** = (x₁, x₂, ..., xₙ)
+- **P_2** = (y₁, y₂, ..., yₙ)
 
 The distance between **P_1** and **P_2** is given by the following formula:
 
