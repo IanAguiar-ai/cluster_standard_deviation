@@ -3,6 +3,7 @@ Exemplo simples
 """
 from copy import deepcopy
 from cluster_deviation import Cluster_Deviation
+from cluster_min import Cluster_Min
 
 def plot_2d(list_:list):
     """
@@ -74,16 +75,28 @@ def multiple_plot_2d(groups:list[list[list[float]]]):
 if __name__ == "__main__":
     from random import random, seed
     from copy import deepcopy
-    
-    metodo = Cluster_Deviation([[random()*20, random()*20] for _ in range(200)])
-    
-    antes = deepcopy(metodo.list)
-    
-    plot_2d(metodo.list)
-    metodo.cluster(iterations = 10)
-    for i in range(2, 5):
-        metodo.group(amount = i)
 
-    metodo.group()
-    multiple_plot_2d(metodo.groups)
+##    # Método cluster deviation    
+##    metodo = Cluster_Deviation([[random()*20, random()*20] for _ in range(200)])
+##    
+##    antes = deepcopy(metodo.list)
+##    
+##    plot_2d(metodo.list)
+##    metodo.cluster(iterations = 10)
+##    for i in range(2, 5):
+##        metodo.group(amount = i)
+##
+##    metodo.group()
+##    multiple_plot_2d(metodo.groups)
+
+
+    # Método cluster min
+    dados = [[x, 8 + (x/4)**2*1.6] for x in range(10)]
+    dados.extend([[x, (x/4)**2*1.6] for x in range(10)])
+
+    metodo = Cluster_Min(dados)
+    metodo.cluster([[0, -2], [0, 10]])
+    print(metodo.groups)
+
+    multiple_plot_2d(list(metodo.groups.values()))
 
