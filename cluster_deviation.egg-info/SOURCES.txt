@@ -3,6 +3,7 @@ README.md
 setup.py
 cluster_deviation/__init__.py
 cluster_deviation/cluster_deviation.py
+cluster_deviation/cluster_min.py
 cluster_deviation/example.py
 cluster_deviation.egg-info/PKG-INFO
 cluster_deviation.egg-info/SOURCES.txt
